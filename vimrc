@@ -14,12 +14,13 @@ Plugin 'genutils'
 Plugin 'a.vim'
 " Plugin 'perforce'
 Plugin 'https://github.com/scrooloose/nerdtree'
-Plugin 'https://github.com/mileszs/ack.vim'
 Plugin 'https://github.com/kien/ctrlp.vim'
 Plugin 'https://github.com/tacahiroy/ctrlp-funky'
-Plugin 'https://github.com/ivalkeen/vim-ctrlp-tjump'
 Plugin 'https://github.com/FelikZ/ctrlp-py-matcher'
 Plugin 'https://github.com/tpope/vim-sensible'
+Plugin 'https://github.com/tpope/vim-fugitive'
+Plugin 'https://github.com/tpope/vim-unimpaired'
+Plugin 'https://github.com/tpope/vim-dispatch'
 Plugin 'https://github.com/Shougo/unite.vim'
 Plugin 'https://github.com/hewes/unite-gtags'
 Plugin 'https://github.com/Shougo/unite-outline'
@@ -37,12 +38,9 @@ Plugin 'https://github.com/tomtom/tcomment_vim'
 Plugin 'https://github.com/osyo-manga/vim-over'
 Plugin 'https://github.com/terryma/vim-multiple-cursors'
 Plugin 'https://github.com/mattesgroeger/vim-bookmarks'
-Plugin 'https://github.com/tpope/vim-fugitive'
 Plugin 'https://github.com/wellle/targets.vim'
-Plugin 'https://github.com/tpope/vim-dispatch'
 Plugin 'https://github.com/ntpeters/vim-better-whitespace'
 Plugin 'https://github.com/vim-scripts/YankRing.vim'
-Plugin 'https://github.com/tpope/vim-unimpaired'
 Plugin 'https://github.com/SirVer/ultisnips'
 Plugin 'https://github.com/honza/vim-snippets'
 Plugin 'https://github.com/Yggdroot/indentLine'
@@ -106,6 +104,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 set listchars=tab:▸\ ,eol:¬
 set list
+
+set scrolloff=4
 
 set wildignore+=*/.hg/*,*/.git/*
 set wildignore+=*/obsolete/*,*/SFFGenerator/*,*/TestDirectory/*
@@ -175,6 +175,12 @@ endif
 nnoremap <Leader>yr :let @+ = expand("%")<CR>
 nnoremap <Leader>yf :let @+ = expand("%:p")<CR>
 nnoremap <Leader>yn :let @+ = expand("%:t")<CR>
+
+" The leader defaults to backslash, so (by default) this
+" maps \* and \g* (see :help Leader).
+" These work like * and g*, but do not move the cursor and always set hls.
+map <Leader>* :let @/ = '\<'.expand('<cword>').'\>'\|set hlsearch<C-M>
+map <Leader>g* :let @/ = expand('<cword>')\|set hlsearch<C-M>
 
 " quickhl
 nmap <Space>m <Plug>(quickhl-manual-this)
