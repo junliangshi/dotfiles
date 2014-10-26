@@ -19,7 +19,6 @@ Plugin 'https://github.com/kien/ctrlp.vim'
 Plugin 'https://github.com/tacahiroy/ctrlp-funky'
 Plugin 'https://github.com/ivalkeen/vim-ctrlp-tjump'
 Plugin 'https://github.com/FelikZ/ctrlp-py-matcher'
-" Plugin 'https://github.com/JazzCore/ctrlp-cmatcher'
 Plugin 'https://github.com/tpope/vim-sensible'
 Plugin 'https://github.com/Shougo/unite.vim'
 Plugin 'https://github.com/hewes/unite-gtags'
@@ -135,6 +134,18 @@ function! CompileCPP()
 endfunction
 " silent make the gui dispaly ugly, need Ctrl-L to redraw the screen
 nnoremap <Leader>cm :call CompileCPP()<CR><C-l>
+
+command! -nargs=1 GrepCurrentBuffer call GrepCurrentBuffer(<q-args>)
+function! GrepCurrentBuffer(query)
+    let file = expand('%')
+    if file ==''
+        return
+    endif
+    let cmd = 'silent vimgrep '
+    let cmd .= a:query . ' ' . file
+    execute cmd
+endfunction
+
 nnoremap <C-j> j<C-e>
 nnoremap <C-k> k<C-y>
 
@@ -153,8 +164,6 @@ noremap  <Right>  <NOP>
 if has("gui_running")
   if has("gui_gtk2")
     set guifont=Source\ Code\ Pro\ 10
-    "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline
-    " set guifont=Sauce\ Code\ Powerline\ 10
   elseif has("gui_macvim")
     set guifont=Menlo\ Regular:h14
   elseif has("gui_win32")
@@ -189,7 +198,11 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:ctrlp_extensions = ['funky']
 nnoremap <Leader>b :CtrlPBuffer<CR>
 nnoremap <Leader>t :CtrlPBufTag<CR>
+nnoremap <Leader>ta :CtrlPBufTagAll<CR>
 nnoremap <Leader>p :CtrlP<CR>
+nnoremap <Leader>pc :CtrlPChange<CR>
+nnoremap <Leader>pm :CtrlPMRUFiles<CR>
+nnoremap <Leader>pq :CtrlPQuickfix<CR>
 
 " Unite
 " set no max for unite
@@ -255,6 +268,8 @@ let g:GtagsCscope_Auto_Map = 1
 let g:GtagsCscope_Auto_Load = 1
 let g:GtagsCscope_Use_Old_Key_Map = 0
 set cscopetag
+set cscopequickfix=s-,c-,d-,i-,t-,e-
+
 " nmap <C-_>s :cs find s <C-R>=expand("<cword>")<CR><CR>
 " nmap <C-_>g :cs find g <C-R>=expand("<cword>")<CR><CR>
 " nmap <C-_>c :cs find c <C-R>=expand("<cword>")<CR><CR>
@@ -346,3 +361,14 @@ let g:airline_theme = 'powerlineish'
 let g:signify_disable_by_default = 1
 let g:signify_mapping_next_hunk = '<leader>gj'
 let g:signify_mapping_prev_hunk = '<leader>gk'
+
+
+" command! -nargs=+ AgAsync call AgFunc(<q-args>)
+" function! AgFunc(query)
+"     let cmd = 'ag --nocolor --nogroup --column '
+"     let cmd .= a:query
+"     let efm = "%f:%l:%c:%m"
+"     let title = "[Found: %s] Ag"
+"     let env = asynchandler#quickfix(efm, title)
+"     call asynccommand#run(cmd, env)
+" endfunction
