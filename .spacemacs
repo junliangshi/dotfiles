@@ -625,8 +625,14 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(avy-all-windows nil)
  '(compilation-ask-about-save nil)
  '(compilation-save-buffers-predicate (quote ignore))
+ '(doxymacs-blank-multiline-comment-template doxymacs-my-blank-multiline-comment-template)
+ '(doxymacs-blank-singleline-comment-template doxymacs-my-blank-singleline-comment-template)
+ '(doxymacs-file-comment-template doxymacs-my-file-comment-template)
+ '(doxymacs-function-comment-template doxymacs-my-function-comment-template)
+ '(evil-search-module (quote evil-search))
  '(evil-symbol-word-search t)
  '(evil-want-fine-undo nil)
  '(ggtags-auto-jump-to-match nil)
