@@ -30,4 +30,4 @@ unless return was pressed outside the comment"
         (insert "\n*")
         (indent-for-tab-command))
     ;; else insert only new-line
-    (insert "\n")))
+    (newline-and-indent)))

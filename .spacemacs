@@ -37,8 +37,6 @@ values."
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      helm
-     ;; auto-completion
-     ;; better-defaults
      emacs-lisp
      (auto-completion :variables
                       auto-completion-enable-snippets-in-popup t)
@@ -52,17 +50,17 @@ values."
      semantic
      syntax-checking
      python
-     go
+     ;; go
      java
      javascript
      latex
-     ruby
-     ruby-on-rails
+     ;; ruby
+     ;; ruby-on-rails
      sql
-     swift
+     ;; swift
      html
      lua
-     php
+     ;; php
      helm
      (shell :variables
             shell-default-height 30

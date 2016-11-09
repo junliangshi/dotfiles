@@ -201,8 +201,8 @@
     :config
     ;; Enable all my custom templates
     (add-hook 'font-lock-mode-hook 'my-doxymacs-font-lock-hook)
-    (define-key evil-insert-state-map (kbd "C-h") 'tempo-backward-mark)
-    (define-key evil-insert-state-map (kbd "C-l") 'tempo-forward-mark)
+    ;; (define-key evil-insert-state-map (kbd "C-h") 'tempo-backward-mark)
+    ;; (define-key evil-insert-state-map (kbd "C-l") 'tempo-forward-mark)
     (add-hook 'c++-mode-hook (lambda ()
                                (define-key evil-insert-state-local-map
                                  (kbd "RET") 'my-doxgen-return)))
