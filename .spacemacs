@@ -185,7 +185,7 @@ values."
    ;; and TAB or <C-m> and RET.
    ;; In the terminal, these pairs are generally indistinguishable, so this only
    ;; works in the GUI. (default nil)
-   dotspacemacs-distinguish-gui-tab nil
+   dotspacemacs-distinguish-gui-tab t
    ;; If non nil `Y' is remapped to `y$' in Evil states. (default nil)
    dotspacemacs-remap-Y-to-y$ t
    ;; If non-nil, the shift mappings `<' and `>' retain visual state if used
@@ -339,6 +339,8 @@ you should place your code here."
   (keyfreq-autosave-mode 1)
 
   (setq create-lockfiles nil)
+
+  (setq avy-all-windows nil)
 
   (setq-default fill-column 100)
   ;; set different value for main mode
@@ -623,7 +625,6 @@ you should place your code here."
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(avy-all-windows nil)
  '(compilation-ask-about-save nil)
  '(compilation-save-buffers-predicate (quote ignore))
  '(doxymacs-blank-multiline-comment-template doxymacs-my-blank-multiline-comment-template)
