@@ -38,8 +38,9 @@ values."
      ;; ----------------------------------------------------------------
      helm
      emacs-lisp
-     (auto-completion :variables
-                      auto-completion-enable-snippets-in-popup t)
+     (auto-completion)
+     ;; (auto-completion :variables
+     ;;                  auto-completion-enable-snippets-in-popup t)
      git
      markdown
      org
@@ -458,15 +459,16 @@ you should place your code here."
   ;; (set-variable 'ycmd-server-command
   ;;               '("python" "/home/jshi/.vim/bundle/YouCompleteMe/third_party/ycmd/ycmd"
   ;;                 "--log" "info"))
-  (set-variable 'ycmd-server-command
+  (setq ycmd-server-command
                 '("python" "/home/jshi/bin64/ycmd.10.09.2016/ycmd/ycmd"
                   "--log" "info" "--keep_logfiles"))
-  (set-variable 'ycmd-extra-conf-whitelist
+  (setq ycmd-extra-conf-whitelist
                 '("/n/filer3b/home/dev/jshi/code_work/code_git/branch10/*"))
   ;;(add-hook 'python-mode-hook 'ycmd-mode)
   (add-hook 'ruby-mode-hook 'ycmd-mode)
   (add-hook 'php-mode-hook 'ycmd-mode)
   (add-hook 'go-mode-hook 'ycmd-mode)
+  (setq ycmd-force-semantic-completion t)
   ;; ggtags setting
   (add-hook 'c-mode-common-hook
             (lambda ()
