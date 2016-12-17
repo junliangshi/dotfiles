@@ -99,22 +99,23 @@ setopt append_history           # append
 setopt hist_ignore_all_dups     # no duplicate
 setopt HIST_SAVE_NO_DUPS        # When writing out the history file, older commands that duplicate newer ones are omitted.
 
-bindkey -v
+# bindkey -v
+bindkey '^[' vi-cmd-mode
 bindkey "^R" history-incremental-search-backward
 bindkey '^P' up-history
 bindkey '^N' down-history
 # by default it is vi behavior, not vim. backspace cannot work as normal
 # switch from command mode to insert mode
-bindkey "^W" backward-kill-word    # vi-backward-kill-word
-bindkey "^H" backward-delete-char  # vi-backward-delete-char
-bindkey "^U" backward-kill-line    # vi-kill-line
-bindkey "^?" backward-delete-char  # vi-backward-delete-char
+# bindkey "^W" backward-kill-word    # vi-backward-kill-word
+# bindkey "^H" backward-delete-char  # vi-backward-delete-char
+# bindkey "^U" backward-kill-line    # vi-kill-line
+# bindkey "^?" backward-delete-char  # vi-backward-delete-char
 
 # ESC to normal mode, v to use vim to edit command
 export VISUAL=vim
 autoload edit-command-line
 zle -N edit-command-line
-bindkey -M vicmd v edit-command-line
+#bindkey -M vicmd v edit-command-line
 # or emacs style: C-x C-e to edit
 bindkey "^X^E" edit-command-line
 
@@ -122,7 +123,7 @@ bindkey "^X^E" edit-command-line
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export FZF_DEFAULT_COMMAND='ag -g ""'
 export FZF_CTRL_T_COMMAND='ag -g ""'
-bindkey "^F" fzf-cd-widget
+#bindkey "^F" fzf-cd-widget
 
 # ls color change to solarized
 eval `dircolors ~/.dir_colors/dircolors.ansi-dark`
