@@ -7,6 +7,7 @@ dir_open_source_bin="/home/jshi/open_source/bin"
 
 path_array=(
     /home/jshi/my_script
+    #"$dir_bin64"/emacs-25.1/bin
     "$dir_bin64"/emacs-24.5/bin
     "$dir_bin64"/vim8/bin
     "$dir_bin64"/tmux-1.9a/bin
@@ -23,6 +24,7 @@ path_array=(
     "$dir_bin64"/intltool-0.50.2/bin
     "$dir_bin64"/bash-3.2.57/bin
     "$dir_bin64"/valgrind-3.10.1/bin/valgrind
+    "$dir_bin64"/curl-7.51/bin
     "$dir_bin64"/bin
     ~/bin
     "${QTDIR}"/bin
