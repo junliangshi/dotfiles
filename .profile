@@ -15,7 +15,7 @@ path_array=(
     "$dir_bin64"/ctags-5.8/bin
     "$dir_bin64"/gdb-7.8/bin
     "$dir_bin64"/the_silver_searcher/bin
-    "$dir_bin64"/binutils-2.24/bin
+    "$dir_bin64"/binutils-2.27/bin
     "$dir_bin64"/gcc4.9.1/bin
     "$dir_bin64"/cmake-3.6.2/bin
     "$dir_bin64"/python-2.7.8/bin
