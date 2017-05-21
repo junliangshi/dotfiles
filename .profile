@@ -31,7 +31,6 @@ path_array=(
     "${QTCREATOR}"/bin
     "/home/jshi/open_source/go-1.4/bin"
 )
-
 # PATH
 for mypath in "${path_array[@]}"
 do

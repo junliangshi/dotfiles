@@ -13,5 +13,5 @@ fi
 #fi
 
 if [ -r ~/.profile ]; then . ~/.profile; fi
-case "$-" in *i*) if [ -r ~/.zshrc ]; then . ~/.zshrc; fi;; esac
+#case "$-" in *i*) if [ -r ~/.zshrc ]; then . ~/.zshrc; fi;; esac
 

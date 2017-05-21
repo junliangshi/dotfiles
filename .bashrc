@@ -73,3 +73,6 @@ fi
 # ls color change to solarized
 eval `dircolors ~/.dir_colors/dircolors.ansi-dark`
 
+# make sure always use my build python
+export PATH=/home/jshi/bin64/python-2.7.8/bin:$PATH
+
