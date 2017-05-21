@@ -62,7 +62,6 @@ values."
      html
      lua
      ;; php
-     helm
      (shell :variables
             shell-default-height 30
             shell-default-position 'bottom)
@@ -285,7 +284,7 @@ values."
    dotspacemacs-folding-method 'evil
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
    ;; (default nil)
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode 't
    ;; If non-nil pressing the closing parenthesis `)' key in insert mode passes
    ;; over any automatically added closing parenthesis, bracket, quote, etc…
    ;; This can be temporary disabled by pressing `C-q' before `)'. (default nil)
@@ -339,6 +338,21 @@ you should place your code here."
   (setq powerline-default-separator 'nil)
   (spaceline-compile)
 
+  (global-set-key (kbd "C-x C-m") 'helm-M-x)
+  (global-set-key (kbd "C-c C-m") 'helm-M-x)
+
+  (setq evil-lisp-state-enter-lisp-state-on-command 'nil)
+
+  ;; helm
+  ;; C-k is next line
+  (define-key helm-map (kbd "C-S-k") 'helm-delete-minibuffer-contents)
+
+  (fset 'evil-visual-update-x-selection 'ignore)
+  (defun evil-paste-after-from-0 ()
+    (interactive)
+    (let ((evil-this-register ?0))
+      (call-interactively 'evil-paste-after)))
+
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1)
 
@@ -352,6 +366,8 @@ you should place your code here."
   ;; (add-hook 'python-mode-hook (lambda () (setq fill-column 79)))
   (setq column-enforce-column 101)
   (spacemacs/toggle-highlight-long-lines-globally-on)
+
+  (define-key evil-visual-state-map "p" 'evil-paste-after-from-0)
   ;; Make evil-mode up/down operate in screen lines instead of logical lines
   (define-key evil-motion-state-map "j" 'evil-next-visual-line)
   (define-key evil-motion-state-map "k" 'evil-previous-visual-line)
@@ -636,6 +652,7 @@ you should place your code here."
  '(doxymacs-blank-singleline-comment-template doxymacs-my-blank-singleline-comment-template)
  '(doxymacs-file-comment-template doxymacs-my-file-comment-template)
  '(doxymacs-function-comment-template doxymacs-my-function-comment-template)
+ '(dumb-jump-max-find-time 10)
  '(evil-search-module (quote evil-search))
  '(evil-symbol-word-search t)
  '(evil-want-fine-undo nil)
